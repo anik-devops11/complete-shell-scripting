@@ -7,7 +7,7 @@ This guide is designed for **absolute beginners** who want to learn how to autom
 
 ## 📚 Table of Contents
 
-1. [Introduction to Shell Scripting](#1-introduction-to-shell-scripting)
+1. [Introduction to Shell Scripting](#1️⃣-introduction-to-shell-scripting)
 2. [Variables](#2-variables)
 3. [User Input and Read](#3-user-input-and-read)
 4. [Conditional Statements (if/else)](#4-conditional-statements-ifelse)
