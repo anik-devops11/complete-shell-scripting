@@ -8,7 +8,7 @@ This guide is designed for **absolute beginners** who want to learn how to autom
 # 📚 Table of Contents
 
 1. [Shell Scripting Fundamentals](#1️⃣-shell-scripting-fundamentals)
-2. [Variables](#2-variables)
+2. [Variables](#2️⃣-variables)
 3. [User Input and Read](#3-user-input-and-read)
 4. [Conditional Statements (if/else)](#4-conditional-statements-ifelse)
 5. [Loops (for, while, until)](#5-loops-for-while-until)
