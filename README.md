@@ -144,3 +144,30 @@ Hello Linux User!
 Today's Time and Date is .
 Fri sep 5 AM +06 2025
 ```
+## 💬 Comments in Shell Scripting
+
+In shell scripting, comments help make scripts easier to understand by explaining what the code does. Comments are **ignored by the shell** during execution.
+
+---
+
+### 🧵 Single-Line Comments
+
+Use the `#` symbol at the beginning of a line to write a comment.
+
+```bash
+# This is a single-line comment
+echo "Hello, World!"  # This comment is on the same line as a command
+```
+---
+
+### 📄 Multi-Line Comments (Simulated)
+
+Although Bash doesn't support traditional multi-line comments, you can simulate them using a **here-document**:
+
+```bash
+<<comment
+This is a multi-line comment.
+It won’t be executed.
+comment
+```
+> ⚠️ Note: The starting and ending `comment` must be **exactly the same**, and there should be **no leading spaces or tabs** on the line.
