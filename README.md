@@ -171,3 +171,7 @@ It won’t be executed.
 comment
 ```
 > ⚠️ Note: The starting and ending `comment` must be **exactly the same**, and there should be **no leading spaces or tabs** on the line.
+
+# 2️⃣ Variables
+
+A **shell variable** is a named storage location used to hold data like numbers, strings, filenames, or command outputs. It acts as a pointer to values in memory and plays a key role in writing dynamic and reusable shell scripts.
