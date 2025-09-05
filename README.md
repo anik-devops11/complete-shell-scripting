@@ -176,3 +176,171 @@ comment
 
 A **shell variable** is a named storage location used to hold data like numbers, strings, filenames, or command outputs. It acts as a pointer to values in memory and plays a key role in writing dynamic and reusable shell scripts.
 
+---
+
+### ✅ Valid Variable Names
+
+These are allowed:
+
+```bash
+ABC
+_AV_3
+AV232
+````
+
+---
+
+### ❌ Invalid Variable Names
+
+These will cause errors:
+
+```bash
+2_AN     # Starts with a number
+!ABD     # Contains !
+$ABC     # Contains $
+&QAID    # Contains &
+```
+
+> 📝 **Note:** Only underscores (`_`) are allowed as special characters in variable names. All other special characters have predefined meanings in Shell.
+
+---
+
+### 🛠️ Defining a Variable
+
+#### 🔹 Syntax:
+
+```bash
+variable_name=<value>
+```
+
+> ⚠️ No spaces before or after `=`
+
+### 📥 Accessing a Variable
+
+Use `$` to access the value:
+
+```bash
+#!/bin/bash
+
+first_name="Anik"
+last_name="Dash"
+
+echo "$first_name $last_name"
+```
+
+🟢 **Output:**
+
+```
+Anik Dash
+```
+
+---
+
+### ❌ Unsetting a Variable
+
+Use `unset` to delete a variable:
+
+```bash
+#!/bin/bash
+
+name="Anik"
+age=26
+echo "$name $age"
+
+unset age
+
+echo "$name $age"
+```
+
+🟢 **Output:**
+
+```
+Anik 26
+Anik 
+```
+
+> ⚠️ You **cannot unset a read-only variable**
+
+---
+
+### 🔒 Read-Only Variable
+
+A variable declared as `readonly` cannot be changed later.
+
+```bash
+#!/bin/bash
+
+group="DevOps"
+readonly group
+
+echo "Group is: $group"
+
+group="DevSecOps"  # This will cause an error
+```
+
+🟢 **Output:**
+
+```
+Group is : DevOps
+./variable.sh: line 9: group: readonly variable
+```
+
+---
+
+## 🧪 Example Script: All Concepts Together
+
+```bash
+#!/bin/bash
+
+# Variable definitions
+name="Anik Dash"
+age=26
+
+# Accessing variables
+echo "Name is $name and age is $age."
+
+# Read-only variable
+blood_group="O+"
+readonly blood_group
+echo "Blood group is $blood_group"
+
+# Trying to modify read-only variable
+blood_group="B+"   # Will throw error
+
+# Unsetting a variable
+unset age
+echo "After unsetting age..."
+echo "Name is $name, blood group is $blood_group, age is $age"
+```
+
+---
+
+## 📥 Store User Input in Variables
+
+You can use the `read` command to take input from users and store it in variables:
+
+```bash
+#!/bin/bash
+
+echo "Enter the length of the rectangle:"
+read length
+
+echo "Enter the width of the rectangle:"
+read width
+
+area=$((length * width))
+
+echo "The area of the rectangle is: $area"
+```
+
+🟢 **Sample Output:**
+
+```
+Enter the length of the rectangle:
+5
+Enter the width of the rectangle:
+4
+The area of the rectangle is: 20
+```
+
+---
