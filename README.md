@@ -105,7 +105,7 @@ chmod +x my_script.sh
 ```
 Or 
  ```
- chmod 754
+ chmod 754 my_script.sh
 ```
 In Linux, the `chmod` command is used to control who can **read**, **write**, or **execute** a file or script.
 | Permission | Number | Meaning         |
@@ -175,3 +175,4 @@ comment
 # 2️⃣ Variables
 
 A **shell variable** is a named storage location used to hold data like numbers, strings, filenames, or command outputs. It acts as a pointer to values in memory and plays a key role in writing dynamic and reusable shell scripts.
+
