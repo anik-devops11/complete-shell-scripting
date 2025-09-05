@@ -5,7 +5,7 @@ This guide is designed for **absolute beginners** who want to learn how to autom
 
 ---
 
-## 📚 Table of Contents
+# 📚 Table of Contents
 
 1. [Introduction to Shell Scripting](#1️⃣-introduction-to-shell-scripting)
 2. [Variables](#2-variables)
@@ -20,7 +20,7 @@ This guide is designed for **absolute beginners** who want to learn how to autom
 
 ---
 
-## 1️⃣ Introduction to Shell Scripting
+# 1️⃣ Introduction to Shell Scripting
 
 ### What is a Shell Script?
 A shell script is a text file (`.sh`) that includes a sequence of commands that will be executed by a shell (like Bash). Shell scripts allows for automation that enables one to create reusable, executable programs for tasks that would require manual command-line work.
