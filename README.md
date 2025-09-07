@@ -9,7 +9,7 @@ This guide is designed for **absolute beginners** who want to learn how to autom
 
 1. [Shell Scripting Fundamentals](#1️⃣-shell-scripting-fundamentals)
 2. [Variables](#2️⃣-variables)
-3. [User Input and Read](#3-user-input-and-read)
+3. [User Input and Read](#3️⃣-user-input-and-read)
 4. [Conditional Statements (if/else)](#4-conditional-statements-ifelse)
 5. [Loops (for, while, until)](#5-loops-for-while-until)
 6. [Functions](#6-functions)
@@ -51,7 +51,7 @@ Learn how to create, edit, and execute a shell script using `vim`.
 
 ---
 
-### 📄 1. Create a New File
+### 📄 1️⃣ Create a New File
 
 ```bash
 vim my_script.sh
@@ -61,13 +61,13 @@ vim my_script.sh
 
 ---
 
-### ✍️ 2. Enter Insert Mode
+### ✍️ 2️⃣ Enter Insert Mode
 
 * Press `i` to enter insert mode
 
 ---
 
-### 💬 3. Write Your Script
+### 💬 3️⃣ Write Your Script
 
 ```bash
 # ! /bin/bash
@@ -79,13 +79,13 @@ date
 
 ---
 
-### ❌ 4. Exit Insert Mode
+### ❌ 4️⃣ Exit Insert Mode
 
 * Press `Esc` to switch back to command mode
 
 ---
 
-### 💾 5. Save and Exit
+### 💾 5️⃣ Save and Exit
 
 ```bash
 :wq   # write & quit
@@ -98,7 +98,7 @@ date
 
 ---
 
-### 🔓 6. Make Script Executable
+### 🔓 6️⃣ Make Script Executable
 
 ```bash
 chmod +x my_script.sh
@@ -121,7 +121,7 @@ In Linux, the `chmod` command is used to control who can **read**, **write**, or
 
 ---
 
-### ▶️ 7. Run the Script
+### ▶️ 7️⃣ Run the Script
 
 ```bash
 ./my_script.sh
@@ -129,7 +129,7 @@ In Linux, the `chmod` command is used to control who can **read**, **write**, or
 
 ---
 
-### 🚫 8. Run Without Making Executable
+### 🚫 8️⃣ Run Without Making Executable
 
 ```bash
 bash my_script.sh
@@ -137,7 +137,7 @@ bash my_script.sh
 
 ---
 
-### 📤 9. Example Output
+### 📤 9️⃣ Example Output
 
 ```
 Hello Linux User!
@@ -205,9 +205,7 @@ $ABC     # Contains $
 
 ---
 
-### 🛠️ Defining a Variable
-
-#### 🔹 Syntax:
+### 🛠️ 1️⃣ Defining a Variable
 
 ```bash
 variable_name=<value>
@@ -215,7 +213,7 @@ variable_name=<value>
 
 > ⚠️ No spaces before or after `=`
 
-### 📥 Accessing a Variable
+### 📥 2️⃣ Accessing a Variable
 
 Use `$` to access the value:
 
@@ -225,7 +223,7 @@ Use `$` to access the value:
 first_name="Anik"
 last_name="Dash"
 
-echo "$first_name $last_name"
+echo "$first_name $last_name and date is $(date)"
 ```
 
 🟢 **Output:**
@@ -236,7 +234,7 @@ Anik Dash
 
 ---
 
-### ❌ Unsetting a Variable
+### ❌ 3️⃣ Unsetting a Variable
 
 Use `unset` to delete a variable:
 
@@ -263,7 +261,7 @@ Anik
 
 ---
 
-### 🔒 Read-Only Variable
+### 🔒4️⃣ Read-Only Variable
 
 A variable declared as `readonly` cannot be changed later.
 
@@ -315,32 +313,159 @@ echo "Name is $name, blood group is $blood_group, age is $age"
 
 ---
 
-## 📥 Store User Input in Variables
+# 3️⃣ User Input and Read
+# 3️⃣ User Input and Read
+Shell scripts can take input from the user during execution using the `read` command. This makes scripts interactive and flexible.
 
-You can use the `read` command to take input from users and store it in variables:
+### Taking Name as Input
+```
+#!/bin/bash
+
+echo "Enter your name :"
+read name
+echo "Hello $name!"
+```
+🟢 **Output:**
+```
+Enter your name:
+Anik
+Hello Anik!
+```
+
+### Read Command arguments
+
+- **Prompt String** `-p`
+- **Password Input** `-s`
+- **Changing the Delimiter** `IFS`
+- **Parsing to the array** `-a`
+- **Limiting Length of the Input** `-n`
+- **Timed Input** `-t`
+
+### 1️⃣ Prompt String (`-p`)
 
 ```bash
 #!/bin/bash
 
-echo "Enter the length of the rectangle:"
-read length
+read -p "Enter you OS name: " OS
+echo "Your OS is: $OS"                      
+````
 
-echo "Enter the width of the rectangle:"
-read width
-
-area=$((length * width))
-
-echo "The area of the rectangle is: $area"
-```
-
-🟢 **Sample Output:**
+🟢 **Output:**
 
 ```
-Enter the length of the rectangle:
-5
-Enter the width of the rectangle:
-4
-The area of the rectangle is: 20
+Enter you OS name: Ubuntu
+Your OS is: Ubuntu
+```
+
+---
+
+### 2️⃣ Silent/Password Input (`-s`)
+
+```bash
+#!/bin/bash
+echo "Enter your password: "
+read -s
+echo "Your password saved"
+```
+
+🟢 **Output:**
+
+```
+Enter your password:
+Your password saved
+```
+
+---
+
+#### 3️⃣ Changing the Delimiter (IFS)
+
+```bash
+#!/bin/bash
+
+IFS="&" read OS1 OS2
+echo "OS1 : $OS1"
+echo "OS2 : $OS2"
+```
+
+🟢 **Input:**
+
+```
+Ubuntu&Windows
+```
+
+🟢 **Output:**
+
+```
+OS1 : Ubuntu
+OS2 : Windows
+```
+
+---
+
+### 4️⃣ Parsing to an Array (`-a`)
+
+```bash
+#!/bin/bash
+
+echo "Enter a list of programming languages:"
+read -a languages
+
+echo "I like: ${languages[0]}, ${languages[1]}, and ${languages[2]}"
+```
+
+🟢 **Input:**
+
+```
+Bash Python C++
+```
+
+🟢 **Output:**
+
+```
+I like: Bash, Python, and C++
+```
+
+---
+
+### 5️⃣ Limiting Length of the Input (`-n`)
+
+```bash
+#!/bin/bash
+
+read -n 5 -p "Enter only 5 digit code: " digit
+echo
+echo "Your code is: $digit"                         
+```
+
+🟢 **Output (accepts only 4 characters):**
+
+```
+Enter only 5 digit code: 12340
+Your code is: 12340
+```
+
+---
+
+### 6️⃣ Timed Input (`-t`)
+
+```bash
+#!/bin/bash
+
+read -t 5 -p "Enter Your username (Within 5 seconds) : " name
+echo "Your username is : $name"
+```
+
+🟢 **Output (if typed within 5 seconds):**
+
+```
+Enter Your username (Within 5 seconds) : Anik
+Your username is : Anik
+```
+
+🟡 **If no input:**
+
+```
+Username: 
 ```
 
 ---
