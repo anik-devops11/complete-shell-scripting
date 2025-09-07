@@ -314,7 +314,7 @@ echo "Name is $name, blood group is $blood_group, age is $age"
 ---
 
 # 3️⃣ User Input and Read
-# 3️⃣ User Input and Read
+
 Shell scripts can take input from the user during execution using the `read` command. This makes scripts interactive and flexible.
 
 ### Taking Name as Input
