@@ -10,7 +10,7 @@ This guide is designed for **absolute beginners** who want to learn how to autom
 1. [Shell Scripting Fundamentals](#1️⃣-shell-scripting-fundamentals)
 2. [Variables](#2️⃣-variables)
 3. [User Input and Read](#3️⃣-user-input-and-read)
-4. [Conditional Statements (if/else)](#4-conditional-statements-ifelse)
+4. [Conditional Statements](#4️⃣-conditional-statements)
 5. [Loops (for, while, until)](#5-loops-for-while-until)
 6. [Functions](#6-functions)
 7. [File Handling](#7-file-handling)
@@ -467,5 +467,217 @@ Your username is : Anik
 ```
 Username: 
 ```
+
+---
+
+# 4️⃣ Conditional Statements
+
+Conditional statements allow your script to **make decisions** based on conditions. They help execute different commands depending on whether a condition is **true or false**.
+
+---
+
+### 📌 Basic Syntax
+
+```bash
+if [ condition ]
+then
+    # commands
+fi
+````
+
+With `else`:
+
+```bash
+if [ condition ]
+then
+    # commands if true
+else
+    # commands if false
+fi
+```
+
+With `elif`:
+
+```bash
+if [ condition1 ]
+then
+    # commands if condition1 is true
+elif [ condition2 ]
+then
+    # commands if condition2 is true
+else
+    # commands if none are true
+fi
+```
+
+---
+
+### 🧪 Example 1: Simple `if`
+
+```bash
+#!/bin/bash
+
+num=10
+
+if [ $num -gt 5 ]
+then
+    echo "$num is greater than 5"
+fi
+```
+
+---
+
+### 🧪 Example 2: `if-else`
+
+```bash
+#!/bin/bash
+
+echo "Enter your age:"
+read age
+
+if [ $age -ge 18 ]
+then
+    echo "You are an adult."
+else
+    echo "You are underage."
+fi
+```
+
+---
+
+### 🧪 Example 3: `if-elif-else`
+
+```bash
+#!/bin/bash
+
+echo "Enter a number:"
+read num
+
+if [ $num -gt 0 ]
+then
+    echo "Positive number"
+elif [ $num -lt 0 ]
+then
+    echo "Negative number"
+else
+    echo "Zero"
+fi
+```
+
+---
+
+### 🧠 Common Comparison Operators
+
+| Operator | Meaning             |
+| -------- | ------------------- |
+| `-eq`    | Equal               |
+| `-ne`    | Not equal           |
+| `-gt`    | Greater than        |
+| `-lt`    | Less than           |
+| `-ge`    | Greater or equal    |
+| `-le`    | Less or equal       |
+| `==`     | Equal (strings)     |
+| `!=`     | Not equal (strings) |
+
+---
+
+### 🔎 String Comparison Example
+
+```bash
+#!/bin/bash
+
+str1="Anik"
+str2="Dash"
+
+if [ "$str1" == "$str2" ]
+then
+    echo "Strings are equal"
+else
+    echo "Strings are different"
+fi
+```
+
+---
+
+## 🗂️ File Test Operators
+
+| Operator  | Description           |
+| --------- | --------------------- |
+| `-e file` | True if file exists   |
+| `-f file` | True if regular file  |
+| `-d file` | True if directory     |
+| `-r file` | True if readable      |
+| `-w file` | True if writable      |
+| `-x file` | True if executable    |
+| `-s file` | True if not empty     |
+| `-L file` | True if symbolic link |
+
+#### 🧪 Example: File Test
+
+```bash
+#!/bin/bash
+
+file="hello.txt"
+
+if [ -e "$file" ]; then
+    echo "$file exists."
+else
+    echo "$file does not exist."
+fi
+```
+
+---
+
+## 🔹 Logical Operators
+
+| Operator | Meaning                            |    |                   |
+| -------- | ---------------------------------- | -- | ----------------- |
+| `!`      | NOT → reverses a condition         |    |                   |
+| `-a`     | AND → true if both conditions true |    |                   |
+| `-o`     | OR → true if any condition true    |    |                   |
+| `&&`     | AND (in \[\[ … ]])                 |    |                   |
+
+
+#### 🧪 Example: Logical Operators
+
+```bash
+#!/bin/bash
+
+num=15
+
+# Using -a (AND)
+if [ $num -gt 10 -a $num -lt 20 ]; then
+    echo "$num is between 10 and 20"
+fi
+
+# Using -o (OR)
+if [ $num -lt 10 -o $num -gt 20 ]; then
+    echo "$num is outside 10-20 range"
+else
+    echo "$num is inside 10-20 range"
+fi
+
+# Using ! (NOT)
+if [ ! -e "data.txt" ]; then
+    echo "data.txt does not exist"
+fi
+```
+
+> 💡 Tip: Using `[[ … ]]` allows `&&` and `||` for cleaner syntax:
+
+```bash
+if [[ $num -gt 10 && $num -lt 20 ]]; then
+    echo "Inside range"
+fi
+```
+
+---
+
+### ⚠️ Tips for Conditional Statements
+
+* Always include **spaces** inside `[ ]` → `[ $a -gt 10 ]` ✅
+* Quote variables `"${var}"` to prevent errors if empty
+* Use `fi` to close every `if` block
+* Combine multiple conditions with **logical operators** for powerful scripts
 
 ---
