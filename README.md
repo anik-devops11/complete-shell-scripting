@@ -717,7 +717,7 @@ Tools name: Git
 Tools name: Bash
 ```
 
-### 1.2 Example: Listing All Files in the Current Directory 📂
+#### 1.2 Example: Listing All Files in the Current Directory 📂
 
 ```bash
 #!/bin/bash
@@ -733,7 +733,7 @@ File: script.sh
 File: input.txt
 ```
 
-### 1.3 Example: Listing Specific Files (e.g., .txt Files) 📝
+#### 1.3 Example: Listing Specific Files (e.g., .txt Files) 📝
 
 ```bash
 #!/bin/bash
@@ -749,7 +749,7 @@ Text file: note1.txt
 Text file: note2.txt
 ```
 
-### 1.4 Example: Using a Numerical Range 🔢
+#### 1.4 Example: Using a Numerical Range 🔢
 
 ```bash
 #!/bin/bash
@@ -783,7 +783,7 @@ while condition; do
 done
 ```
 
-### 2.1 Example: Print Number's Multiplication Table ✖️
+#### 2.1 Example: Print Number's Multiplication Table ✖️
 
 ```bash
 #!/bin/bash
@@ -812,7 +812,7 @@ please enter a number 5
 10 * 5 =  50
 ```
 
-### 2.2 Example: Iterating Over a List of Names 🧑‍💻
+#### 2.2 Example: Iterating Over a List of Names 🧑‍💻
 
 ```bash
 #!/bin/bash
@@ -828,7 +828,7 @@ done <<< "$names"
 Name: AWS Git Linux Bash
 ```
 
-### 2.3 Example: Counting Numbers 🔢
+#### 2.3 Example: Counting Numbers 🔢
 
 ```bash
 #!/bin/bash
@@ -849,7 +849,7 @@ Number: 4
 Number: 5
 ```
 
-### 2.4 Example: Reading a File Line by Line 📄
+#### 2.4 Example: Reading a File Line by Line 📄
 
 ```bash
 #!/bin/bash
@@ -881,7 +881,7 @@ do
 done
 ```
 
-### 3.2 Example: Counting from 1 to 5 🔢
+#### 3.2 Example: Counting from 1 to 5 🔢
 
 ```bash
 #!/bin/bash
@@ -903,7 +903,7 @@ Count: 4
 Count: 5
 ```
 
-### 3.3 Example: User Input Until Correct Number 🎯
+#### 3.3 Example: User Input Until Correct Number 🎯
 
 ```bash
 #!/bin/bash
@@ -915,7 +915,7 @@ done
 echo "Congrats! You guessed 5."
 ```
 
-### 3.4 Key Point 💡
+#### 3.4 Key Point 💡
 
 * Loop continues **while the condition is false**.
 * Once the condition becomes true, it exits.
