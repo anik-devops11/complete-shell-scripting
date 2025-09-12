@@ -11,7 +11,7 @@ This guide is designed for **absolute beginners** who want to learn how to autom
 2. [Variables](#2️⃣-variables)
 3. [User Input and Read](#3️⃣-user-input-and-read)
 4. [Conditional Statements](#4️⃣-conditional-statements)
-5. [Loops (for, while, until)](#5-loops-for-while-until)
+5. [Loops (for, while, until)](#5️⃣-loops-for-while-until)
 6. [Functions](#6-functions)
 7. [File Handling](#7-file-handling)
 8. [Command Line Arguments](#8-command-line-arguments)
@@ -681,3 +681,239 @@ fi
 * Combine multiple conditions with **logical operators** for powerful scripts
 
 ---
+
+# 🔁 Shell Scripting Loops
+
+Loops in shell scripting allow you to execute a block of code repeatedly based on a condition or a set of values. 
+
+---
+
+## 1️⃣ For Loop
+
+The for loop iterates over a list of items (e.g., strings, numbers, files) and executes a block of code for each item.
+
+```bash
+for variable in list; do
+    # Commands
+done
+````
+
+### 1.1 Example: Iterating Over a List of Names 📝
+
+```bash
+#!/bin/bash
+for name in "AWS" "Linux" "Git" "Bash"; do
+    echo "Tools Name: $name"
+done
+```
+
+**Output:**
+
+```
+Tools name: AWS
+Tools name: Linux
+Tools name: Git
+Tools name: Bash
+```
+
+### 1.2 Example: Listing All Files in the Current Directory 📂
+
+```bash
+#!/bin/bash
+for file in *; do
+    echo "File: $file"
+done
+```
+
+**Output:** (Depends on files in the directory, e.g., script.sh, input.txt)
+
+```
+File: script.sh
+File: input.txt
+```
+
+### 1.3 Example: Listing Specific Files (e.g., .txt Files) 📝
+
+```bash
+#!/bin/bash
+for file in *.txt; do
+    echo "Text file: $file"
+done
+```
+
+**Output:** (For .txt files like note1.txt, note2.txt)
+
+```
+Text file: note1.txt
+Text file: note2.txt
+```
+
+### 1.4 Example: Using a Numerical Range 🔢
+
+```bash
+#!/bin/bash
+for num in {1..5}; do
+    echo "Number: $num"
+done
+```
+
+**Output:**
+
+```
+Number: 1
+Number: 2
+Number: 3
+Number: 4
+Number: 5
+```
+
+**Use Case:** Use for loops when you have a fixed list of items (names, files, or numbers) or know the number of iterations in advance.
+
+---
+
+## 2️⃣ While Loop
+
+The while loop executes a block of code as long as a condition is true.
+
+```bash
+while condition; do
+    # Commands
+done
+```
+
+### 2.1 Example: Print Number's Multiplication Table ✖️
+
+```bash
+#!/bin/bash
+read -p "please enter a number " number
+initNumber=1
+while [[ ${initNumber} -le 10 ]]
+do
+    echo "$initNumber * $number = $((initNumber*number))"
+    ((initNumber++))
+done
+```
+
+**Output:**
+
+```
+please enter a number 5
+1 * 5 =  5
+2 * 5 =  10
+3 * 5 =  15
+4 * 5 =  20
+5 * 5 =  25
+6 * 5 =  30
+7 * 5 =  35
+8 * 5 =  40
+9 * 5 =  45
+10 * 5 =  50
+```
+
+### 2.2 Example: Iterating Over a List of Names 🧑‍💻
+
+```bash
+#!/bin/bash
+names="AWS Git Linux Bash"
+while IFS= read -r name; do
+    echo "Name: $name"
+done <<< "$names"
+```
+
+**Output:**
+
+```
+Name: AWS Git Linux Bash
+```
+
+### 2.3 Example: Counting Numbers 🔢
+
+```bash
+#!/bin/bash
+num=1
+while [ $num -le 5 ]; do
+    echo "Number: $num"
+    ((num++))
+done
+```
+
+**Output:**
+
+```
+Number: 1
+Number: 2
+Number: 3
+Number: 4
+Number: 5
+```
+
+### 2.4 Example: Reading a File Line by Line 📄
+
+```bash
+#!/bin/bash
+while IFS= read -r line; do
+    echo "Line: $line"
+done < input.txt
+```
+
+**Output:** (Depends on input.txt, e.g., apple, banana, orange)
+
+```
+Line: apple
+Line: banana
+Line: orange
+```
+
+---
+
+## 3️⃣ Until Loop ⏳
+
+The `until` loop executes a block of code **until a condition becomes true**. It is the opposite of `while`.
+
+### 3.1 Syntax ✅
+
+```bash
+until [ condition ]
+do
+    # commands
+done
+```
+
+### 3.2 Example: Counting from 1 to 5 🔢
+
+```bash
+#!/bin/bash
+count=1
+until [ $count -gt 5 ]
+do
+    echo "Count: $count"
+    ((count++))
+done
+```
+
+**Output:**
+
+```
+Count: 1
+Count: 2
+Count: 3
+Count: 4
+Count: 5
+```
+
+### 3.3 Example: User Input Until Correct Number 🎯
+
+```bash
+#!/bin/bash
+number=0
+until [ $number -eq 5 ]
+do
+    read -p "Guess the number (1-10): " number
+done
+echo "Congrats! You guessed 5."
+```
+
+### 3.4 Key Point 💡
+
+* Loop continues **while the condition is false**.
+* Once the condition becomes true, it exits.
