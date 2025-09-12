@@ -285,7 +285,7 @@ Group is : DevOps
 
 ---
 
-## 🧪 Example Script: All Concepts Together
+### 🧪 Example Script: All Concepts Together
 
 ```bash
 #!/bin/bash
@@ -599,7 +599,7 @@ fi
 
 ---
 
-## 🗂️ File Test Operators
+### 🗂️ File Test Operators
 
 | Operator  | Description           |
 | --------- | --------------------- |
@@ -628,7 +628,7 @@ fi
 
 ---
 
-## 🔹 Logical Operators
+### 🔹 Logical Operators
 
 | Operator | Meaning                            |    |                   |
 | -------- | ---------------------------------- | -- | ----------------- |
@@ -688,11 +688,11 @@ Loops in shell scripting allow you to execute a block of code repeatedly based o
 
 ---
 
-## 1️⃣ For Loop
+### 1️⃣ For Loop
 
 The for loop iterates over a list of items (e.g., strings, numbers, files) and executes a block of code for each item.
 
-### 📌 Basic Syntax
+#### 📌 Basic Syntax
 ```bash
 for variable in list; do
     # Commands
@@ -772,11 +772,11 @@ Number: 5
 
 ---
 
-## 2️⃣ While Loop
+### 2️⃣ While Loop
 
 The while loop executes a block of code as long as a condition is true.
 
-### 📌 Basic Syntax
+#### 📌 Basic Syntax
 ```bash
 while condition; do
     # Commands
@@ -868,11 +868,11 @@ Line: orange
 
 ---
 
-## 3️⃣ Until Loop ⏳
+### 3️⃣ Until Loop ⏳
 
 The `until` loop executes a block of code **until a condition becomes true**. It is the opposite of `while`.
 
-### 3.1 Syntax ✅
+#### 3.1 Syntax ✅
 
 ```bash
 until [ condition ]
