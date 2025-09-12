@@ -11,7 +11,7 @@ This guide is designed for **absolute beginners** who want to learn how to autom
 2. [Variables](#2️⃣-variables)
 3. [User Input and Read](#3️⃣-user-input-and-read)
 4. [Conditional Statements](#4️⃣-conditional-statements)
-5. [Loops (for, while, until)](#5️⃣-loops-for-while-until)
+5. [Shell Scripting Loops](#5️⃣-shell-scripting-loops)
 6. [Functions](#6-functions)
 7. [File Handling](#7-file-handling)
 8. [Command Line Arguments](#8-command-line-arguments)
@@ -682,7 +682,7 @@ fi
 
 ---
 
-# 🔁 Shell Scripting Loops
+# 5️⃣ Shell Scripting Loops
 
 Loops in shell scripting allow you to execute a block of code repeatedly based on a condition or a set of values. 
 
@@ -692,6 +692,7 @@ Loops in shell scripting allow you to execute a block of code repeatedly based o
 
 The for loop iterates over a list of items (e.g., strings, numbers, files) and executes a block of code for each item.
 
+### 📌 Basic Syntax
 ```bash
 for variable in list; do
     # Commands
@@ -775,6 +776,7 @@ Number: 5
 
 The while loop executes a block of code as long as a condition is true.
 
+### 📌 Basic Syntax
 ```bash
 while condition; do
     # Commands
