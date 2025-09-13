@@ -12,10 +12,10 @@ This guide is designed for **absolute beginners** who want to learn how to autom
 3. [User Input and Read](#3️⃣-user-input-and-read)
 4. [Conditional Statements](#4️⃣-conditional-statements)
 5. [Shell Scripting Loops](#5️⃣-shell-scripting-loops)
-6. [Functions](#6-functions)
-7. [File Handling](#7-file-handling)
-8. [Command Line Arguments](#8-command-line-arguments)
-9. [Exit Status and Error Handling](#9-exit-status-and-error-handling)
+6. [Functions](#6️⃣-functions)
+7. [File Handling](#7️⃣-file-handling)
+8. [Command Line Arguments](#8️⃣-command-line-arguments)
+9. [Exit Status and Error Handling](9️⃣-exit-status-and-error-handling)
 10. [Practical Examples](#10-practical-examples)
 
 ---
@@ -973,7 +973,7 @@ for i in {1..10}; do
 done
 ```
 
-**Output:**
+🟢 **Output:**
 
 ```
 Number: 1
@@ -987,4 +987,204 @@ Number: 8
 Number: 9
 Number: 10
 ```
+---
+# 6️⃣ Functions
+
+A **function** in shell script is a block of code that performs a specific task and can be reused multiple times.
+
+It helps in:
+
+* Avoiding repetition of code
+* Improving readability and structure
+* Making code modular and maintainable
+
+---
+
+### 📌 Basic Syntax 
+
+```bash
+function_name () {
+    # Commands
+}
+```
+
+**OR**
+
+```bash
+function function_name {
+    # Commands
+}
+```
+
+To **call** a function:
+
+```bash
+function_name
+```
+
+---
+
+### ✅ Example 1: Simple Function
+
+```bash
+greet() {
+    echo "Hello, Welcome to Shell Scripting!"
+}
+
+# Calling the function
+greet
+```
+
+🟢 **Output:**
+
+```
+Hello, Welcome to Shell Scripting!
+```
+
+---
+
+### ✅ Example 2: Function with Parameters
+
+```bash
+greet_user() {
+    echo "Hello, $1!"
+    echo "Your age is $2."
+}
+
+# Calling the function with arguments
+greet_user "Anik" 25
+```
+
+### 👉 Explanation:
+
+* `$1`, `$2`, etc. are **positional parameters**.
+* `$1` = first argument, `$2` = second argument
+
+**Output:**
+
+```
+Hello, Anik!
+Your age is 25.
+```
+
+---
+
+### ✅ Example 3: Return Values from Function
+
+```bash
+#!/bin/bash
+sum (){
+        read -p "First number: " a
+        read -p "Second number: " b
+        sum=$((a+b))
+        echo "The sum is $sum"
+}
+sum
+
+```
+🟢 **Input**
+```
+First number: 1
+Second number: 4
+The sum is 5
+```
+🟢 **Output:**
+
+```
+Sum is: 30
+```
+
+---
+
+### ✅ Example 4: Creating Multiple Files
+
+```bash
+#!/bin/bash
+create_files() {
+    local count=$1
+    local prefix=$2
+    for ((i=1; i<=count; i++)); do
+        touch "${prefix}${i}.txt"
+        echo "Created ${prefix}${i}.txt"
+    done
+}
+create_files 3 "note"
+```
+
+🟢 **Output:**
+
+```
+Created note1.txt
+Created note2.txt
+Created note3.txt
+```
+
+---
+
+### ✅ Example 5: Using `Return` for Exit Status
+
+```bash
+#!/bin/bash
+check_file() {
+    if [ -f "$1" ]; then
+        return 0  # Success
+    else
+        return 1  # Failure
+    fi
+}
+check_file "test.txt"
+if [ $? -eq 0 ]; then
+    echo "File test.txt exists."
+else
+    echo "File test.txt does not exist."
+fi
+```
+🟢 **Output:**
+
+```
+File test.txt exists.
+```
+---
+
+### ✅ Example 6: List `.txt` Files Using a Function
+
+```bash
+#!/bin/bash
+
+list_txt_files() {
+    echo "📂 Listing all .txt files in the current directory:"
+    ls *.txt 2>/dev/null
+}
+
+# Call the function
+list_txt_files
+```
+### 🔍 Explanation:
+
+| Line               | Purpose                                      |
+| ------------------ | -------------------------------------------- |
+| `list_txt_files()` | Function declaration                         |
+| `ls *.txt`         | Lists all `.txt` files in the current folder |
+| `2>/dev/null`      | Hides error if no `.txt` files exist         |
+| `list_txt_files`   | Calls the function                           |
+
+---
+
+**Output**
+
+```
+📂 Listing all .txt files in the current directory:
+notes.txt
+todo.txt
+readme.txt
+```
+
+>If no `.txt` files are found, it will just show:
+
+```
+📂 Listing all .txt files in the current directory:
+```
+
+>(No error will be shown because of `2>/dev/null`)
+
 ---
