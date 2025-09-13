@@ -708,7 +708,7 @@ for name in "AWS" "Linux" "Git" "Bash"; do
 done
 ```
 
-**Output:**
+**🟢 Output:**
 
 ```
 Tools name: AWS
@@ -742,7 +742,7 @@ for file in *.txt; do
 done
 ```
 
-**Output:** (For .txt files like note1.txt, note2.txt)
+**🟢 Output:** (For .txt files like note1.txt, note2.txt)
 
 ```
 Text file: note1.txt
@@ -758,7 +758,7 @@ for num in {1..5}; do
 done
 ```
 
-**Output:**
+**🟢 Output:**
 
 ```
 Number: 1
@@ -796,7 +796,7 @@ do
 done
 ```
 
-**Output:**
+**🟢 Output:**
 
 ```
 please enter a number 5
@@ -822,7 +822,7 @@ while IFS= read -r name; do
 done <<< "$names"
 ```
 
-**Output:**
+**🟢 Output:**
 
 ```
 Name: AWS Git Linux Bash
@@ -839,7 +839,7 @@ while [ $num -le 5 ]; do
 done
 ```
 
-**Output:**
+**🟢 Output:**
 
 ```
 Number: 1
@@ -858,7 +858,7 @@ while IFS= read -r line; do
 done < input.txt
 ```
 
-**Output:** (Depends on input.txt, e.g., apple, banana, orange)
+**🟢 Output:** (Depends on input.txt, e.g., apple, banana, orange)
 
 ```
 Line: apple
@@ -893,7 +893,7 @@ do
 done
 ```
 
-**Output:**
+**🟢 Output:**
 
 ```
 Count: 1
