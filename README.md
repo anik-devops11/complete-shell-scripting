@@ -919,3 +919,72 @@ echo "Congrats! You guessed 5."
 
 * Loop continues **while the condition is false**.
 * Once the condition becomes true, it exits.
+---
+
+### 🚦 Break and Continue in Loops
+
+In shell scripting, you can control the flow of loops using `break` and `continue`.
+
+---
+
+### 🔴 `break`: Exit the loop when a condition is met
+
+The `break` command is used to **terminate** the loop immediately when a certain condition is true.
+
+#### Example: Stop printing numbers when 5 is reached
+
+```bash
+#!/bin/bash
+for i in {1..10}; do
+    if [ $i -eq 5 ]; then
+        echo "Stopping at $i"
+        break
+    fi
+    echo "Number: $i"
+done
+````
+
+**Output:**
+
+```
+Number: 1
+Number: 2
+Number: 3
+Number: 4
+Stopping at 5
+```
+
+---
+
+### 🟢 `continue`: Skip the current iteration
+
+The `continue` command is used to **skip** the current iteration and move to the next one.
+
+#### Example: Skip number 5 while printing 1 to 10
+
+```bash
+#!/bin/bash
+for i in {1..10}; do
+    if [ $i -eq 5 ]; then
+        echo "Skipping $i"
+        continue
+    fi
+    echo "Number: $i"
+done
+```
+
+**Output:**
+
+```
+Number: 1
+Number: 2
+Number: 3
+Number: 4
+Skipping 5
+Number: 6
+Number: 7
+Number: 8
+Number: 9
+Number: 10
+```
+---
