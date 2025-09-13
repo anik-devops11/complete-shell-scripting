@@ -1188,3 +1188,133 @@ readme.txt
 >(No error will be shown because of `2>/dev/null`)
 
 ---
+
+# 7️⃣ File Handling
+Teach **file operations in shell scripting** – create, read, write, append, check, and delete files.
+
+###  Example 1: Create a Single File 📄
+
+```bash
+#!/bin/bash
+# 01_create_file.sh
+# Purpose: Create a new file
+
+echo "Enter filename to create:"
+read filename
+
+touch "$filename"
+echo "✅ File '$filename' created."
+```
+
+---
+
+### Example 2: Create Multiple Files in a Loop 🔄
+
+```bash
+#!/bin/bash
+# 02_create_multiple_files.sh
+# Purpose: Create 3 files using a loop
+
+for i in {1..3}; do
+    touch "file$i.txt"
+    echo "✅ Created file$i.txt"
+done
+```
+
+---
+
+### Example 3a: Overwrite a File ✍️
+
+```bash
+#!/bin/bash
+# 03a_overwrite_file.sh
+# Purpose: Write content to a file (overwrite)
+
+echo "Hello, Bash!" > "file.txt"
+echo "✅ Overwritten file.txt with new content"
+```
+
+---
+
+### Example 3b: Append to a File ➕
+
+```bash
+#!/bin/bash
+# 03b_append_file.sh
+# Purpose: Append content to a file
+
+echo "This is line 2." >> "file.txt"
+echo "✅ Appended new line to file.txt"
+```
+
+---
+
+### Example 4: Read Entire File 📖
+
+```bash
+#!/bin/bash
+# 04_read_file.sh
+# Purpose: Display full content of a file
+
+cat "file.txt"
+```
+
+---
+
+### Example 5: Read File Line by Line 📝
+
+```bash
+#!/bin/bash
+# 05_read_line_by_line.sh
+# Purpose: Read a file line by line
+
+while IFS= read -r line; do
+    echo "Line: $line"
+done < "file.txt"
+```
+
+---
+
+### Example 6: Access Specific Lines 🔍
+
+```bash
+#!/bin/bash
+# 06_specific_lines.sh
+# Purpose: Display specific lines from a file
+
+head -n 1 "file.txt"      # First line
+tail -n 1 "file.txt"      # Last line
+sed -n '2p' "file.txt"    # Second line
+```
+
+---
+
+### Example 7: Delete a File 🗑️
+
+```bash
+#!/bin/bash
+# 07_delete_file.sh
+# Purpose: Delete a file if it exists
+
+if [ -f "temp.txt" ]; then
+    rm "temp.txt"
+    echo "🗑️ File deleted."
+else
+    echo "❌ File not found."
+fi
+```
+
+---
+
+### Example 8: Change File Permissions 🔐
+
+```bash
+#!/bin/bash
+# 08_set_permissions.sh
+# Purpose: Change file permissions
+
+chmod 755 "script.sh"  # Owner: rwx, Others: rx
+echo "🔑 Permissions set to 755."
+ls -l "script.sh"
+```
+---
