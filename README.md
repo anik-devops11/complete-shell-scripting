@@ -1203,7 +1203,7 @@ echo "Enter filename to create:"
 read filename
 
 touch "$filename"
-echo "✅ File '$filename' created."
+echo "File '$filename' created."
 ```
 
 ---
@@ -1217,7 +1217,7 @@ echo "✅ File '$filename' created."
 
 for i in {1..3}; do
     touch "file$i.txt"
-    echo "✅ Created file$i.txt"
+    echo "Created file$i.txt"
 done
 ```
 
@@ -1231,7 +1231,7 @@ done
 # Purpose: Write content to a file (overwrite)
 
 echo "Hello, Bash!" > "file.txt"
-echo "✅ Overwritten file.txt with new content"
+echo "Overwritten file.txt with new content"
 ```
 
 ---
@@ -1244,7 +1244,7 @@ echo "✅ Overwritten file.txt with new content"
 # Purpose: Append content to a file
 
 echo "This is line 2." >> "file.txt"
-echo "✅ Appended new line to file.txt"
+echo "Appended new line to file.txt"
 ```
 
 ---
@@ -1298,9 +1298,9 @@ sed -n '2p' "file.txt"    # Second line
 
 if [ -f "temp.txt" ]; then
     rm "temp.txt"
-    echo "🗑️ File deleted."
+    echo "File deleted."
 else
-    echo "❌ File not found."
+    echo "File not found."
 fi
 ```
 
@@ -1314,7 +1314,7 @@ fi
 # Purpose: Change file permissions
 
 chmod 755 "script.sh"  # Owner: rwx, Others: rx
-echo "🔑 Permissions set to 755."
+echo "Permissions set to 755."
 ls -l "script.sh"
 ```
 ---
